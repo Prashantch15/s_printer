@@ -11,7 +11,8 @@ const bodyParser = require("body-parser");
 const app = express();
 const connectToDatabase = require("./db/db");
 
-const register = require('./controller/registerUser')
+const register = require('./controller/registerUser');
+const login = require('./controller/registerUser');
 
 
 app.use(bodyParser.json());
