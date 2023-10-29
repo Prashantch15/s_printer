@@ -18,7 +18,8 @@ app.use(bodyParser.json());
 
 
 app.use('/register', register);
-app.use('/login', userRoutes);
+app.use('/login',login)
+//app.use('/login', userRoutes);
 app.use('/forgotPass', userRoutess);
 app.use('/profile', userRoutesss);
 
