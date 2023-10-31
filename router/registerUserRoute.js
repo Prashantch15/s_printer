@@ -1,10 +1,15 @@
-// const express = require('express');
-// const router = express.Router();
-// const userController = require('../controller/registerUser');
+const express = require('express');
+const router = express.Router();
+const userController = require('../controller/registerUser');
+const { authenticateToken } = require('../middleware/auth'); // Create a middleware for token authentication
 
-// // Register a new user
-// router.post('/register', userController.register)
-  
-//   // Verify email by OTP
-//   router.post('/verify-email', userController.verify-email)
-  
+// User registration
+router.post('/register', userController.register);
+
+// User login
+router.post('/login', userController.login);
+
+// Get user details (requires authentication)
+router.get('/details', authenticateToken, userController.getUserDetails);
+
+module.exports = router;

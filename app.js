@@ -3,7 +3,7 @@ const port = process.env.PORT || 3000;
 
 const bcrypt = require('bcrypt');
 
-const userRoutes = require('./router/loginUserRoute');
+//const getUser = require('./router/registerUserRoute');
 const express = require("express");
 const userRoutess = require('./router/forgotPassRoute');
 const userRoutesss = require("./router/profileRoute")
@@ -11,15 +11,15 @@ const bodyParser = require("body-parser");
 const app = express();
 const connectToDatabase = require("./db/db");
 
-const register = require('./controller/registerUser');
-const login = require('./controller/registerUser');
+const userRoutes = require('./router/registerUserRoute');
 
 
+
+
+
+app.use('/user', userRoutes);
 app.use(bodyParser.json());
 
-
-app.use('/register', register);
-app.use('/login',login)
 //app.use('/login', userRoutes);
 app.use('/forgotPass', userRoutess);
 app.use('/profile', userRoutesss);

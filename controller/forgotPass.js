@@ -1,5 +1,5 @@
 // controllers/userController.js
-const UserFor = require('../models/forgotpassSch');
+const uuserFor = require('../models/forgotpassSch');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
@@ -8,18 +8,18 @@ exports.forgotPassword = async (req, res) => {
   const { email } = req.body;
 
   try {
-    const user = await UserFor.findOne({ email });
+    const userr = await uuserFor.findOne({ email });
 
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+    if (!userr) {
+      return res.status(404).json({ message: 'Userr not found' });
     }
 
     const resetToken = crypto.randomBytes(32).toString('hex');
     const resetTokenExpiration = Date.now() + 3600000; // Token expires in 1 hour
 
-    user.resetToken = resetToken;
-    user.resetTokenExpiration = resetTokenExpiration;
-    await user.save();
+    userr.resetToken = resetToken;
+    userr.resetTokenExpiration = resetTokenExpiration;
+    await userr.save();
 
     // Send reset password email
     const transporter = nodemailer.createTransport({

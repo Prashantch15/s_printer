@@ -1,6 +1,6 @@
 
 const mongoose = require("mongoose");
-const uri="mongodb+srv://beingpisachh:a1b2c3d4e5@sprinter.zfxfldr.mongodb.net/";
+const uri="mongodb+srv://sprinterApi:asdfghjkl123456@sprinter.2s3nkqi.mongodb.net/?retryWrites=true&w=majority";
 async function connectToDatabase() {
   try {
     await mongoose.connect(uri, {
@@ -15,3 +15,6 @@ async function connectToDatabase() {
 }
 
 module.exports = connectToDatabase;
+
+
+//asdfghjkl123456
